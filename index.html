@@ -606,8 +606,8 @@ You can create an iframe inside the website and use <code>postMessage</code> to 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-en">testCanLocalStorage</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
    <span class="pl-k">var</span> mod <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>modernizr<span class="pl-pds">'</span></span>;
    <span class="pl-k">try</span> {
-       <span class="pl-smi">localStorage</span>.<span class="pl-en">setItem</span>(mod, mod);
-       <span class="pl-smi">localStorage</span>.<span class="pl-en">removeItem</span>(mod);
+       <span class="pl-smi">localStorage</span>.<span class="pl-c1">setItem</span>(mod, mod);
+       <span class="pl-smi">localStorage</span>.<span class="pl-c1">removeItem</span>(mod);
        <span class="pl-k">return</span> <span class="pl-c1">true</span>;
    } <span class="pl-k">catch</span> (e) {
        <span class="pl-k">return</span> <span class="pl-c1">false</span>;
@@ -625,8 +625,8 @@ You can create an iframe inside the website and use <code>postMessage</code> to 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-en">checkCanSessionStorage</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
   <span class="pl-k">var</span> mod <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>modernizr<span class="pl-pds">'</span></span>;
   <span class="pl-k">try</span> {
-    <span class="pl-smi">sessionStorage</span>.<span class="pl-en">setItem</span>(mod, mod);
-    <span class="pl-smi">sessionStorage</span>.<span class="pl-en">removeItem</span>(mod);
+    <span class="pl-smi">sessionStorage</span>.<span class="pl-c1">setItem</span>(mod, mod);
+    <span class="pl-smi">sessionStorage</span>.<span class="pl-c1">removeItem</span>(mod);
     <span class="pl-k">return</span> <span class="pl-c1">true</span>;
   } <span class="pl-k">catch</span> (e) {
     <span class="pl-k">return</span> <span class="pl-c1">false</span>;
@@ -649,7 +649,7 @@ You can create an iframe inside the website and use <code>postMessage</code> to 
         <span class="pl-en">fn</span>();
     } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-c1">window</span>.<span class="pl-smi">addEventListener</span>) {
         <span class="pl-c">// window.addEventListener('load', fn);</span>
-        <span class="pl-c1">window</span>.<span class="pl-en">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>DOMContentLoaded<span class="pl-pds">'</span></span>, fn);
+        <span class="pl-c1">window</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>DOMContentLoaded<span class="pl-pds">'</span></span>, fn);
     } <span class="pl-k">else</span> {
         <span class="pl-c1">window</span>.<span class="pl-c1">attachEvent</span>(<span class="pl-s"><span class="pl-pds">'</span>onreadystatechange<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
             <span class="pl-k">if</span> (<span class="pl-c1">document</span>.<span class="pl-c1">readyState</span> <span class="pl-k">!=</span> <span class="pl-s"><span class="pl-pds">'</span>loading<span class="pl-pds">'</span></span>)
@@ -672,7 +672,7 @@ You can create an iframe inside the website and use <code>postMessage</code> to 
 <p>It's about the cross-origin communication between iframe and window, read the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">API documentation</a>.</p>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-c">// in the iframe</span>
-<span class="pl-smi">parent</span>.<span class="pl-en">postMessage</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>); <span class="pl-c">// string</span>
+<span class="pl-smi">parent</span>.<span class="pl-c1">postMessage</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>); <span class="pl-c">// string</span>
 
 <span class="pl-c">// ==========================================</span>
 
@@ -695,7 +695,7 @@ You can create an iframe inside the website and use <code>postMessage</code> to 
 
 <p>Detect device orientation change</p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-c1">window</span>.<span class="pl-en">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>orientationchange<span class="pl-pds">'</span></span>, fn);</pre></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">window</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>orientationchange<span class="pl-pds">'</span></span>, fn);</pre></div>
 
 <p>Get Orientation Rotate Degree</p>
 
@@ -711,11 +711,11 @@ You can create an iframe inside the website and use <code>postMessage</code> to 
 
 <p>In web page, use CSS style <code>overflow: hidden</code>, in some mobile web, this css doesn't work, use javascript event.</p>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-c1">document</span>.<span class="pl-en">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>touchstart<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){ <span class="pl-smi">e</span>.<span class="pl-en">preventDefault</span>(); }); <span class="pl-c">// prevent scroll</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">document</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>touchstart<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){ <span class="pl-smi">e</span>.<span class="pl-c1">preventDefault</span>(); }); <span class="pl-c">// prevent scroll</span>
 <span class="pl-c">// or </span>
-<span class="pl-c1">document</span>.<span class="pl-c1">body</span>.<span class="pl-en">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>touchstart<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){ <span class="pl-smi">e</span>.<span class="pl-en">preventDefault</span>(); }); <span class="pl-c">// prevent scroll</span>
+<span class="pl-c1">document</span>.<span class="pl-c1">body</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>touchstart<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){ <span class="pl-smi">e</span>.<span class="pl-c1">preventDefault</span>(); }); <span class="pl-c">// prevent scroll</span>
 <span class="pl-c">// use move if you need some touch event</span>
-<span class="pl-c1">document</span>.<span class="pl-en">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>touchmove<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){ <span class="pl-smi">e</span>.<span class="pl-en">preventDefault</span>(); }); <span class="pl-c">// prevent scroll</span></pre></div>
+<span class="pl-c1">document</span>.<span class="pl-c1">addEventListener</span>(<span class="pl-s"><span class="pl-pds">'</span>touchmove<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>){ <span class="pl-smi">e</span>.<span class="pl-c1">preventDefault</span>(); }); <span class="pl-c">// prevent scroll</span></pre></div>
 
 <h2>
 <a id="request" class="anchor" href="#request" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Request</h2>
@@ -782,7 +782,7 @@ but there's a better solution to implement it.</p>
 
     <span class="pl-c">// function to remove the iframe</span>
     <span class="pl-k">var</span> <span class="pl-en">removeIframe</span> <span class="pl-k">=</span> <span class="pl-k">function</span>( <span class="pl-smi">iframe</span> ){
-        <span class="pl-smi">iframe</span>.<span class="pl-smi">parentElement</span>.<span class="pl-en">removeChild</span>(iframe);
+        <span class="pl-smi">iframe</span>.<span class="pl-smi">parentElement</span>.<span class="pl-c1">removeChild</span>(iframe);
     };
 
     <span class="pl-c">// make a iframe...</span>
@@ -1219,7 +1219,7 @@ These characters are: # $ &amp; + , / : ; = ? @ <a href="http://stackoverflow.co
         el <span class="pl-k">=</span> el[<span class="pl-c1">0</span>];
     }
 
-    <span class="pl-k">var</span> rect <span class="pl-k">=</span> <span class="pl-smi">el</span>.<span class="pl-en">getBoundingClientRect</span>();
+    <span class="pl-k">var</span> rect <span class="pl-k">=</span> <span class="pl-smi">el</span>.<span class="pl-c1">getBoundingClientRect</span>();
 
     <span class="pl-k">return</span> (
         <span class="pl-smi">rect</span>.<span class="pl-c1">top</span> <span class="pl-k">&gt;=</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span>
@@ -1234,7 +1234,7 @@ These characters are: # $ &amp; + , / : ; = ? @ <a href="http://stackoverflow.co
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-en">isVisible</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">b</span>) {
     <span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-en">getComputedStyle</span>(b);
-    <span class="pl-k">return</span> <span class="pl-c1">0</span> <span class="pl-k">===</span> <span class="pl-smi">a</span>.<span class="pl-en">getPropertyValue</span>(<span class="pl-s"><span class="pl-pds">"</span>opacity<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>none<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">a</span>.<span class="pl-en">getPropertyValue</span>(<span class="pl-s"><span class="pl-pds">"</span>display<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">a</span>.<span class="pl-en">getPropertyValue</span>(<span class="pl-s"><span class="pl-pds">"</span>visibility<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> <span class="pl-c1">0</span> <span class="pl-k">===</span> <span class="pl-c1">parseInt</span>(<span class="pl-smi">b</span>.<span class="pl-c1">style</span>.<span class="pl-smi">opacity</span>, <span class="pl-c1">10</span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>none<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">b</span>.<span class="pl-c1">style</span>.<span class="pl-c1">display</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">b</span>.<span class="pl-c1">style</span>.<span class="pl-smi">visibility</span> <span class="pl-k">?</span> <span class="pl-c1">false</span> <span class="pl-k">:</span> <span class="pl-c1">true</span>;
+    <span class="pl-k">return</span> <span class="pl-c1">0</span> <span class="pl-k">===</span> <span class="pl-smi">a</span>.<span class="pl-en">getPropertyValue</span>(<span class="pl-s"><span class="pl-pds">"</span>opacity<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>none<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">a</span>.<span class="pl-en">getPropertyValue</span>(<span class="pl-s"><span class="pl-pds">"</span>display<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">a</span>.<span class="pl-en">getPropertyValue</span>(<span class="pl-s"><span class="pl-pds">"</span>visibility<span class="pl-pds">"</span></span>) <span class="pl-k">||</span> <span class="pl-c1">0</span> <span class="pl-k">===</span> <span class="pl-c1">parseInt</span>(<span class="pl-smi">b</span>.<span class="pl-c1">style</span>.<span class="pl-smi">opacity</span>, <span class="pl-c1">10</span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>none<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">b</span>.<span class="pl-c1">style</span>.<span class="pl-c1">display</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span> <span class="pl-k">===</span> <span class="pl-smi">b</span>.<span class="pl-c1">style</span>.<span class="pl-c1">visibility</span> <span class="pl-k">?</span> <span class="pl-c1">false</span> <span class="pl-k">:</span> <span class="pl-c1">true</span>;
 }
 
 <span class="pl-k">var</span> element <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>box<span class="pl-pds">'</span></span>);
@@ -1314,6 +1314,7 @@ These characters are: # $ &amp; + , / : ; = ? @ <a href="http://stackoverflow.co
 <li><a href="https://gist.github.com/jed/982883">generate random UUIDs</a></li>
 <li><a href="http://stackoverflow.com/questions/2414750/difference-between-domcontentloaded-and-load-events">DOMContentLoaded and Load Event</a></li>
 <li><a href="https://medium.com/javascript-scene/must-see-javascript-dev-tools-that-put-other-dev-tools-to-shame-aca6d3e3d925">Must See JavaScript Dev Tools That Put Other Dev Tools to Shame</a></li>
+<li><a href="https://github.com/noffle/art-of-readme">Learn the art of writing quality READMEs.</a></li>
 </ol>
 
 <p><em>(inspired by <a href="https://github.com/interagent/http-api-design">http-api-design</a>)</em></p>
